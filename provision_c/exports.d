@@ -4,9 +4,15 @@ import provision.adi;
 import provision.compat.general;
 import std.string;
 
+import slf4d;
+import slf4d.default_provider;
+
 __gshared ADI gADI;
 
 public extern(C) void provision_Load(const char* path) {
+    debug {
+        configureLoggingProvider(new shared DefaultProvider(true, Levels.DEBUG));
+    }
     gADI = new ADI(cast(string) path.fromStringz);
 }
 
