@@ -76,6 +76,8 @@ subPackage {
     targetType "dynamicLibrary"
     targetPath "bin"
 
+    dflags "--link-defaultlib-shared=false"
+
     workingDirectory "bin"
 
     sourcePaths "provision_c"
