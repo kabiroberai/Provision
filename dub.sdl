@@ -69,3 +69,16 @@ subPackage {
         dflags "-defaultlib=:libgphobos.a" platform="gdc"
     }
 }
+
+subPackage {
+    name "provision-c"
+
+    targetType "dynamicLibrary"
+    targetPath "bin"
+
+    workingDirectory "bin"
+
+    sourcePaths "provision_c"
+
+    dependency "provision" version="*"
+}
