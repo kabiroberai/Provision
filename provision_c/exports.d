@@ -3,13 +3,14 @@ module provision.provision_c.exports;
 import provision.adi;
 import provision.compat.general;
 import std.string;
-
+import core.runtime;
 import slf4d;
 import slf4d.default_provider;
 
 __gshared ADI gADI;
 
 public extern(C) void provision_Load(const char* path) {
+    Runtime.initialize();
     debug {
         configureLoggingProvider(new shared DefaultProvider(true, Levels.DEBUG));
     }
